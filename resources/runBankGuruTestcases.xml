@@ -3,7 +3,7 @@
 	<test name="Run on firefox">
 		<classes>
 			<class
-				name="com.bankguru.account.Account_Level02_ApplyAbstractPage_TopDown2" />
+				name="com.bankguru.account.Account_Level03_PageObject" />
 		</classes>
 	</test>
 </suite>
