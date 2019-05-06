@@ -33,51 +33,40 @@ public class Account_Level03_PageObject {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		email = "selenium09" + ramdomNumber() + "@gmail.com";
-		//abstractPage.openAnyUrl(driver, "http://demo.guru99.com/v4/");
+		// abstractPage.openAnyUrl(driver, "http://demo.guru99.com/v4/");
 		driver.get("http://demo.guru99.com/v4/");
 	}
 
 	@Test
 	public void TC_01_RegisterToSytem() {
-
+		loginPage = new LoginPageObject(driver);
 		Assert.assertTrue(loginPage.isLoginFormDisplayed());
 		loginPageUrl = loginPage.getLoginPageUrl();
 		loginPage.ClickToHereLink();
+		registerPage = new RegisterPageObject(driver);
 		Assert.assertTrue(registerPage.isRegisterPageDisplayed());
 		registerPage.inputToEmailIDTextbox(email);
-		// Step 05 - Click to submit button
-		// abstractPage.clickToElement(driver, "//input[@name='btnLogin']");
 		registerPage.ClickToLoginButton();
-		// Step 06 Get user/password information
-		// userIdInfor =abstractPage.getTextElement(driver, "//td[text()='User ID
-		// :']/following-sibling::td");
 		userIdInfor = registerPage.getUserIDInfor();
-		// passwordInfor =abstractPage.getTextElement(driver, "//td[text()='Password
-		// :']/following-sibling::td");
 		passwordInfor = registerPage.getPassWordInfor();
 		System.out.println("User:" + userIdInfor + " - password: " + passwordInfor);
 	}
+
 	@Test
 	public void TC_02_LoginToSytem() {
 
 		registerPage.openLoginPage(loginPageUrl);
-		// abstractPage.openAnyUrl(driver, loginPageUrl);
-		// Assert.assertTrue(abstractPage.isControDisplayed(driver, "//form[@name
-		// ='frmLogin']"));
+		loginPage = new LoginPageObject(driver);
 		Assert.assertTrue(loginPage.isLoginFormDisplayed());
-		// abstractPage.sendKey(driver, "//input[@name='uid']", userIdInfor);
 		loginPage.inputToUserIDTextBox(userIdInfor);
-		// abstractPage.sendKey(driver, "//input[@name='password']", passwordInfor);
 		loginPage.inputToPassWordTextbox(passwordInfor);
-		// abstractPage.clickToElement(driver, "//input[@name='btnLogin']");
 		loginPage.ClickToLoginButton();
-		// Assert.assertTrue(abstractPage.isControDisplayed(driver,
-		// "//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]"));
+		
+		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isWelcomeMessageDisplayed());
-		// Assert.assertTrue(abstractPage.isControDisplayed(driver, "//td[text()='Manger
-		// Id : " + userIdInfor + "']"));
 		Assert.assertTrue(homePage.isUserIDDisplayed(userIdInfor));
 	}
+
 	@AfterClass
 	public void afterClass() {
 		driver.quit();

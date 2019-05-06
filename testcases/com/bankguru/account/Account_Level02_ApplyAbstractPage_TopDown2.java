@@ -80,8 +80,7 @@ public class Account_Level02_ApplyAbstractPage_TopDown2 {
 		// driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
 		abstractPage.clickToElement(driver, "//input[@name='btnLogin']");
 		// Step 04 Check Home page Displayed
-		// Assert.assertTrue(driver.findElement(By.xpath("//marquee[text()=\"Welcome To
-		// Manager's Page of Guru99 Bank\"]"))
+		// Assert.assertTrue(driver.findElement(By.xpath("//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]"))
 		// .isDisplayed());
 		Assert.assertTrue(abstractPage.isControDisplayed(driver,
 				"//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]"));

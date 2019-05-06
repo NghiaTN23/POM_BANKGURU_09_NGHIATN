@@ -13,27 +13,27 @@ public class RegisterPageObject extends AbstractPage {
 	}
 	public boolean isRegisterPageDisplayed()
 	{
-			waitForElementVisible(driver, RegisterPageUI.USER_ID_TEXT);
-		return isControDisplayed(driver, RegisterPageUI.USER_ID_TEXT);		
+		//waitForElementVisible(driver, RegisterPageUI.USER_ID_TEXT);
+		return isControDisplayed(driver, RegisterPageUI.EMAIL_ID_TEXTBOX);		
 	}
 	
 	public void inputToEmailIDTextbox(String email) {
-		waitForElementVisible(driver, RegisterPageUI.EMAIL_ID_TEXTBOX);
-		sendKey(driver, RegisterPageUI.USER_ID_TEXT, email);
+		//waitForElementVisible(driver, RegisterPageUI.EMAIL_ID_TEXTBOX);
+		sendKey(driver, RegisterPageUI.EMAIL_ID_TEXTBOX, email);
 	}
 
 	public void ClickToLoginButton() {
-		waitForElementVisible(driver, RegisterPageUI.SUBMIT_BUTTON);
+		//waitForElementVisible(driver, RegisterPageUI.SUBMIT_BUTTON);
 		clickToElement(driver, RegisterPageUI.SUBMIT_BUTTON);
 	}
 
 	public String getUserIDInfor() {
-		waitForElementVisible(driver, RegisterPageUI.USER_ID_TEXT);
+		//waitForElementVisible(driver, RegisterPageUI.USER_ID_TEXT);
 		return getTextElement(driver, RegisterPageUI.USER_ID_TEXT);
 	}
 
 	public String getPassWordInfor() {
-		waitForElementVisible(driver, RegisterPageUI.PASSWORD_TEXT);
+		//waitForElementVisible(driver, RegisterPageUI.PASSWORD_TEXT);
 		return getTextElement(driver, RegisterPageUI.PASSWORD_TEXT);
 	}
 

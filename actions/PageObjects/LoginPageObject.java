@@ -18,8 +18,7 @@ public class LoginPageObject extends AbstractPage {
 	}
 
 	public String getLoginPageUrl() {
-		getCurrentPageUrl(driver);
-		return null;
+		return getCurrentPageUrl(driver);
 	}
 
 	public void ClickToHereLink() {
@@ -41,7 +40,7 @@ public class LoginPageObject extends AbstractPage {
 	}
 
 	public void ClickToLoginButton() {
-		waitForElementVisible(driver, LoginPageUI.LOGIN_BUTTON);
+		//waitForElementVisible(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
 
 	}
