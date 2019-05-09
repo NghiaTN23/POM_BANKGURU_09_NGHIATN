@@ -5,10 +5,12 @@ import org.openqa.selenium.remote.server.handler.SendKeys;
 
 import bankguru.RegisterPageUI;
 import commons.AbstractPage;
+import commons.PageFactoryManager;
 
 public class RegisterPageObject extends AbstractPage {
 	private WebDriver driver;
 	public RegisterPageObject(WebDriver mappingDriver) {
+		
 		driver = mappingDriver;
 	}
 	public boolean isRegisterPageDisplayed()
@@ -37,9 +39,11 @@ public class RegisterPageObject extends AbstractPage {
 		return getTextElement(driver, RegisterPageUI.PASSWORD_TEXT);
 	}
 
-	public void openLoginPage(String loginPageUrl) {
+	public LoginPageObject openLoginPage(String loginPageUrl) {
 		openAnyUrl(driver, loginPageUrl);
-		
+		//khoi tao lan 2
+		//return new LoginPageObject(driver);
+		return PageFactoryManager.getLoginPage(driver);
 	}
 
 }

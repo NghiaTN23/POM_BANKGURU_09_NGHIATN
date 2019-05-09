@@ -79,7 +79,7 @@ public class AbstractPage {
 		element = driver.findElement(By.xpath(locator));
 		Select select = new Select(element);
 		select.selectByVisibleText(value);
-	}	
+	}
 
 	public String GetselectItemInDropdown(WebDriver driver, String locator, String value) {
 		element = driver.findElement(By.xpath(locator));
